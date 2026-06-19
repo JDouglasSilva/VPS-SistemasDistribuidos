@@ -1,0 +1,3 @@
+# SASE - Sistema de Atendimento de Senhas Eletrônicas
+# Este projeto utiliza exclusivamente bibliotecas nativas do Python (Standard Library).
+# Nenhuma dependência externa de terceiros é necessária.
