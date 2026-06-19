@@ -1,0 +1,9 @@
+[2J[H[95m==================================================[0m
+[95m          SASE - SERVIDOR CENTRAL (SRV)          [0m
+[95m==================================================[0m
+[*] Servidor SASE iniciado em 127.0.0.1:5000
+
+Digite [96m'status'[0m para ver a situação das filas.
+Digite [91m'sair'[0m para encerrar o servidor.
+
+[93mSRV > [0m

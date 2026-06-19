@@ -1,0 +1,31 @@
+[2J[H[95m==================================================[0m
+[95m          SASE - SERVIDOR CENTRAL (SRV)          [0m
+[95m==================================================[0m
+[*] Servidor SASE iniciado em 127.0.0.1:5000
+
+Digite [96m'status'[0m para ver a situação das filas.
+Digite [91m'sair'[0m para encerrar o servidor.
+
+[93mSRV > [0m[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:41316
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35342
+[2026-06-18 23:04:17] [REGISTRO] Nova senha N1 (Normal) gerada pelo TS.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35358
+[2026-06-18 23:04:18] [REGISTRO] Nova senha N2 (Normal) gerada pelo TS.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35362
+[2026-06-18 23:04:18] [REGISTRO] Nova senha P1 (Prioritário) gerada pelo TS.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35364
+[2026-06-18 23:04:19] [REGISTRO] Nova senha N3 (Normal) gerada pelo TS.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35376
+[2026-06-18 23:04:20] [ATENDIMENTO] Senha N1 enviada para Guichê 1. Regra: Fila Normal.
+[2026-06-18 23:04:20] [BROADCAST] Notificação da senha N1 enviada para as TVs conectadas.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:35378
+[2026-06-18 23:04:24] [ATENDIMENTO] Senha N2 enviada para Guichê 2. Regra: Fila Normal.
+[2026-06-18 23:04:24] [BROADCAST] Notificação da senha N2 enviada para as TVs conectadas.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:59452
+[2026-06-18 23:04:27] [ATENDIMENTO] Senha P1 enviada para Guichê 1. Regra: Regra 2N -> 1P.
+[2026-06-18 23:04:27] [BROADCAST] Notificação da senha P1 enviada para as TVs conectadas.
+[*] [CONEXÃO] Cliente conectado a partir de 127.0.0.1:59458
+[2026-06-18 23:04:31] [ATENDIMENTO] Senha N3 enviada para Guichê 2. Regra: Fila Normal.
+[2026-06-18 23:04:31] [BROADCAST] Notificação da senha N3 enviada para as TVs conectadas.
+[*] Encerrando o servidor...
+[*] Servidor finalizado.
