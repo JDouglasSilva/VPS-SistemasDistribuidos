@@ -82,3 +82,37 @@ A fila é organizada de acordo com as seguintes regras de negócio implementadas
 * **Fila Normal (N) e Prioritária (P):** Senhas geradas em ordens crescentes independentes (N1, N2, P1, P2...).
 * **Regra Especial `2N -> 1P`:** Para garantir a priorização sem deixar a fila comum travada, a cada 2 senhas Normais atendidas consecutivamente, o Servidor é obrigado a enviar uma senha Prioritária (P) para o próximo guichê que chamar, desde que exista alguma senha prioritária na fila.
 * Se não houver senhas prioritárias, o servidor continua chamando as normais normalmente (e vice-versa).
+
+---
+
+## Relatório Técnico
+
+### Identificação
+**Autores:** João Douglas da Silva Freitas e João Matheus
+**Projeto:** Sistema de Atendimento por Senha Eletrônica (SASE)
+
+### Detalhamento das Funções e Soluções de Software Adotadas
+O projeto foi desenvolvido em **Python 3** e atende a todos os requisitos arquiteturais e funcionais propostos, utilizando a abordagem de sistemas distribuídos Cliente-Servidor.
+A comunicação entre os nós ocorre de forma padronizada via **Sockets TCP/IP**, garantindo a entrega confiável das mensagens na rede de acordo com o protocolo definido.
+
+1. **Servidor (SRV):** 
+   - Implementado como um servidor socket multi-thread (uma thread dedicada por cliente conectado).
+   - Gerencia as filas de senhas (Normal e Prioritária) utilizando `threading.Lock` para garantir exclusão mútua. Isso evita *race conditions* (condições de corrida) quando múltiplos Terminais de Senhas (TS) ou Terminais de Atendimento (TA) operam simultaneamente.
+   - O servidor aplica a lógica estrita: a cada 2 senhas Normais (N) enviadas aos TAs, a próxima requisição deverá ser respondida obrigatoriamente com uma senha Prioritária (P), se esta houver na fila.
+   - Emite logs com *timestamps* exatos no terminal para auditar o instante de geração, envio e recebimento de SEAs.
+   - Possui lógica de *Broadcast* que distribui automaticamente a senha chamada para todos os painéis de visualização conectados.
+
+2. **Terminal de Senhas (TS):**
+   - Atua como cliente TCP de envio. Possui interface TUI que permite ao usuário escolher entre senha Normal (N) ou Prioritária (P).
+   - O TS envia o comando para o Servidor e este retorna a senha gerada (e.g. N1, N2, P1, etc.), mantendo a consistência da sequência.
+
+3. **Terminal de Atendimento (TA):**
+   - Atua como cliente TCP operado pelo atendente do guichê. 
+   - Envia solicitação de próxima senha ao Servidor, exibindo a SEA retornada e já validada, sendo esta proveniente da geração prévia no TS.
+
+4. **Terminal de Visualização (TV):**
+   - Opera como um cliente TCP de "escuta contínua". 
+   - Ao iniciar, conecta-se e assina os eventos de broadcast do servidor. Exibe em formato destacado a exata senha que foi direcionada para atendimento em um TA.
+
+### Recursos de Interface
+Foram empregadas interfaces de terminal interativas (TUI) desenvolvidas no próprio Python. O painel da TV, a tela do TA e do TS contam com menus e visuais baseados em caracteres, colorização e limpezas de tela que simulam displays físicos (como monitores ou letreiros de LEDs comumente utilizados em painéis de atendimento).
