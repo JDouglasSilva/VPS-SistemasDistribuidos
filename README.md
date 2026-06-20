@@ -88,7 +88,7 @@ A fila é organizada de acordo com as seguintes regras de negócio implementadas
 ## Relatório Técnico
 
 ### Identificação
-**Autores:** João Douglas da Silva Freitas e João Matheus
+**Autores:** João Douglas da Silva Freitas e João Matheus Alves Costa
 **Projeto:** Sistema de Atendimento por Senha Eletrônica (SASE)
 
 ### Detalhamento das Funções e Soluções de Software Adotadas
